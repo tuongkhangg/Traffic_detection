@@ -1,4 +1,9 @@
 # Team 03:
+## Thành Viên:
+* Đoàn Phú Đức
+* Dat Tran
+* Duong Le Tuong Khang
+* Quang Long Nguyen
 
 ## Colab: Baseline_EfficientDet
 * Sử dụng pretrained model Efficientdet-d4 để thực hiện detection
