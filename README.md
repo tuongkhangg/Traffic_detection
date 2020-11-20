@@ -10,7 +10,7 @@
 ## Colab: train_efficientdet
 * Train model với dữ liệu được gán nhãn  
 * Dữ liệu được gán nhãn ở cam 01, cam 02, cam 03, cam 04, cam 09 và cam 10. Các nhãn được gán là: Bicycle, Motor, Truck, Bus, Car và ở bước detection được chuyển thành 4 class như yêu cầu ở cuộc thi HCMcity AI Challenges.
-* Link dataset cam 10, fullcam(cam 01 + cam 02 + cam 03 + cam 04 + cam 09 + 1 phần cam 10 (khoảng 1000 tấm): https://drive.google.com/drive/folders/1GGI2TXdGIdsCXGqaMl1IvT6ETytQTDyK?usp=sharing
+* Link dataset cam 10, fullcam(cam 01 + cam 02 + cam 03 + cam 04 + cam 09 + 1 phần cam 10 (khoảng 2000 tấm): https://drive.google.com/drive/folders/1GGI2TXdGIdsCXGqaMl1IvT6ETytQTDyK?usp=sharing
 
 ### Training:
 * Nhóm thực hiện theo 2 cách:
