@@ -34,3 +34,9 @@
 * Sau khi thực hiện train lại, model đã có thể detect tốt hơn ở cam 09 và cam 10 ( cải thiện score sau khi thực hiện train lại).
 * Tuy vậy, điểm số cải thiện không nhiều. Điều này có thể do việc thực hiện fine-tuning không tốt, ảnh hưởng đến weight ban đầu của model. 
 ## Stage 2: Tracking
+Sử lý từng camera và in ra files tracking_{cam_num}.txt theo thứ tự sau:
+1. Đọc dữ liệu detections từ file {cam_num}.txt, file json và file zip chứa các frame ảnh.
+2. Khởi tạo model DeepSort với weight pretrained đã được download ở trên
+3. Mỗi frame, đưa mỗi box vào tracking để update tracking rồi in ra file txt theo định dạng: {track_id, x_min, y_min, x_max, y_max, frame_id, label} có nghĩa: id của tracking, {x_min, y_min, x_max, y_max} là box của tracking, id của frame và label của box tracking đấy.
+4. Sau đó, chạy file moi_counting.py ở github được đề cập ở trên (https://github.com/wan2000/DeepSORT/tree/master/deep_sort) để lấy files result_{cam_num}.txt là kết quả cho camera thứ cam_num:
+
