@@ -7,7 +7,10 @@
 
 ## Pipeline:
 1. Treo colab để chạy videoXX.mp4 ra thành các frame ảnh và nén thành 1 file .zip để tiện xử lý
-2.
+2. Dùng file zip ở trên và pretrained EfficientDetD4 để inference các bbox có trên từng frame rồi lưu vào 1 file txt
+3. Chạy DeepSort đọc thông tin từ file cam_XX.txt để lấy thông tin các bbox của từng video. Sau đó áp dụng tracking rồi đưa ra kq ở file tracking_cam_XX.txt
+4. Chạy file counting.py trên github mình đề cập dưới đây để tạo ra result_Cam_xX.txt từ file tracking
+5. Merge các file result_cam_XX.txt thành 1 file duy nhất rồi nộp bài.
 
 ## Stage 1: Detection
 ### Colab: Baseline_EfficientDet
