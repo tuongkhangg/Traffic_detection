@@ -5,6 +5,10 @@
 * Duong Le Tuong Khang
 * Quang Long Nguyen
 
+## Pipeline:
+1. Treo colab để chạy videoXX.mp4 ra thành các frame ảnh và nén thành 1 file .zip để tiện xử lý
+2.
+
 ## Stage 1: Detection
 ### Colab: Baseline_EfficientDet
 * Sử dụng pretrained model Efficientdet-d4 để thực hiện detection
