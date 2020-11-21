@@ -12,6 +12,31 @@
 4. Chạy file counting.py trên github mình đề cập dưới đây để tạo ra result_Cam_xX.txt từ file tracking
 5. Merge các file result_cam_XX.txt thành 1 file duy nhất rồi nộp bài.
 
+## Labeling:
+Sử dụng công cụ labelme để gán nhãn dữ liệu
+Số lượng đối tượng dán nhãn:
+	1. Motor
+	2. Car
+	3. Truck
+	4. Bus
+	5. Bicycle
+*Số lượng ảnh thực hiện*:
+* Ảnh ban ngày:
+Cam 1-5:  mỗi cam thực hiện label 1000 tấm. Nguyên tắc label ảnh sẽ chọn khoảng cách 5 frame hình sẽ tiến hành gán nhãn một ảnh. Ví dụ: cam 1 sẽ label các frame 0000.jpg 0005.jpg 0010.jpg...
+* Ảnh ban đêm:
+Cam 9-10: tổng label 4000 tấm.
+*Nguyên tắc label xe*:
+* NT1: Label tất cả những đối tượng có trên ảnh mà mắt có thể nhận diện được 
+* NT2: Thống nhất phạm vi label đối tượng cho từng cam trước khi tiến hành label
+* NT3: Không label những đối tượng quá nhỏ, bị che hay chói trên ảnh. 
+* NT4: khi label đối tượng ban đêm,  dựa vào đèn xe làm cơ sở label đối tượng, trừ các trường hợp đèn xe bị che hay xe đạp.
+
+1. Thống nhất label đối tượng motor: Bao gồm xe 2 bánh và xe 3
+2. Thống nhất label đối tượng car: xe 4 bánh
+3. Thống nhất label đối tượng truck:Xe chở hàng 
+4. Thống nhất label đối tượng bus: Xe bus công cộng chở người số lượng lớn, xe  khách
+5. Thống nhất label đối tượng bicycle:Xe đạp, xe đạp điện.
+
 ## Stage 1: Detection
 ### Colab: Baseline_EfficientDet
 * Sử dụng pretrained model Efficientdet-d4 để thực hiện detection
@@ -38,5 +63,15 @@ Sử lý từng camera và in ra files tracking_{cam_num}.txt theo thứ tự sa
 1. Đọc dữ liệu detections từ file {cam_num}.txt, file json và file zip chứa các frame ảnh.
 2. Khởi tạo model DeepSort với weight pretrained đã được download ở trên
 3. Mỗi frame, đưa mỗi box vào tracking để update tracking rồi in ra file txt theo định dạng: {track_id, x_min, y_min, x_max, y_max, frame_id, label} có nghĩa: id của tracking, {x_min, y_min, x_max, y_max} là box của tracking, id của frame và label của box tracking đấy.
-4. Sau đó, chạy file moi_counting.py ở github được đề cập ở trên (https://github.com/wan2000/DeepSORT/tree/master/deep_sort) để lấy files result_{cam_num}.txt là kết quả cho camera thứ cam_num:
+4. Sau đó, chạy file moi_counting.py ở github được đề cập ở trên (https://github.com/wan2000/DeepSORT/tree/master/deep_sort) để lấy files result_{cam_num}.txt là kết quả cho camera thứ cam_num
+
+*Hạn chế của tracking hiện tại*:
++ Khi đối tượng di chuyển tốc độ cao và có độ thay đổi lớn thì  không hoạt động tốt
++ IOU metric hoạt động không tốt với đối tượng di chuyển nhanh.
++  Xác định hướng chưa chính xác
+
+*Hướng cải thiện*:
+	+ Xây dựng tracker riêng cho từng class (Thiết kế transition matrix  và prediction noise, hiết kế measurement matrix và measurement noise)
+	+ Cải thiện xác định hướng
+
 
