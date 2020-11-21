@@ -71,7 +71,7 @@ Sử lý từng camera và in ra files tracking_{cam_num}.txt theo thứ tự sa
 +  Xác định hướng chưa chính xác
 
 *Hướng cải thiện*:
-	+ Xây dựng tracker riêng cho từng class (Thiết kế transition matrix  và prediction noise, hiết kế measurement matrix và measurement noise)
-	+ Cải thiện xác định hướng
++ Xây dựng tracker riêng cho từng class (Thiết kế transition matrix  và prediction noise, hiết kế measurement matrix và measurement noise)
++ Cải thiện xác định hướng
 
 
